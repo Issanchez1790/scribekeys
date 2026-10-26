@@ -18,6 +18,8 @@ import os from 'node:os';
 import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// EXT_DIR permite probar otra copia de la extensión, p. ej. el .zip de la release descomprimido.
+const EXT_SOURCE = process.env.EXT_DIR ? path.resolve(process.env.EXT_DIR) : ROOT;
 const PORT = 8765;
 const DEMO_URL = `http://localhost:${PORT}/test/demo.html`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -125,7 +127,7 @@ const near = (a, b, tol = 0.35) => Math.abs(a - b) <= tol;
 function prepareExtensionCopy() {
   const dir = mkdtempSync(path.join(os.tmpdir(), 'scribekeys-ext-'));
   for (const entry of ['manifest.json', '_locales', 'background', 'content', 'icons', 'lib', 'offscreen', 'options', 'popup', 'ui']) {
-    cpSync(path.join(ROOT, entry), path.join(dir, entry), { recursive: true });
+    cpSync(path.join(EXT_SOURCE, entry), path.join(dir, entry), { recursive: true });
   }
   const manifest = JSON.parse(readFileSync(path.join(dir, 'manifest.json'), 'utf8'));
   manifest.host_permissions = ['http://localhost/*']; // simula "Activar en este sitio"
