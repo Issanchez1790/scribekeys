@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>ScribeKeys</title>
+    <link rel="stylesheet" href="../ui/base.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <img src="../icons/icon32.png" width="20" height="20" alt="" />
+      <h1>ScribeKeys</h1>
+      <button id="open-options" class="icon-btn" data-i18n-title="popupOpenOptions" data-i18n-aria-label="popupOpenOptions">⚙</button>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="target-h">
+        <h2 id="target-h" data-i18n="popupTargetHeading"></h2>
+        <div id="target-none" class="muted" data-i18n="popupTargetNone"></div>
+        <div id="target-info" class="hidden">
+          <div class="target-row">
+            <img id="target-favicon" width="16" height="16" alt="" />
+            <span id="target-title" class="target-title"></span>
+            <span id="target-reason" class="badge"></span>
+          </div>
+          <div id="media-line" class="media-line" aria-live="polite"></div>
+        </div>
+        <button id="pin" class="pin"></button>
+      </section>
+
+      <section class="card controls" aria-labelledby="controls-h">
+        <h2 id="controls-h" data-i18n="popupControlsHeading"></h2>
+        <div class="row">
+          <button data-command="rewind" id="btn-rewind" data-i18n-title="cmdRewind"></button>
+          <button data-command="toggle-play" class="primary play" data-i18n-title="cmdTogglePlay" data-i18n-aria-label="cmdTogglePlay">⏯</button>
+          <button data-command="forward" id="btn-forward" data-i18n-title="cmdForward"></button>
+        </div>
+        <div class="row speed">
+          <button data-command="speed-down" data-i18n-title="cmdSpeedDown" data-i18n-aria-label="cmdSpeedDown">−</button>
+          <output id="rate" class="rate">1×</output>
+          <button data-command="speed-up" data-i18n-title="cmdSpeedUp" data-i18n-aria-label="cmdSpeedUp">+</button>
+          <button data-command="speed-reset" data-i18n-title="cmdSpeedReset">1×</button>
+        </div>
+        <button data-command="copy-timestamp" class="wide" data-i18n="popupCopyTimestamp"></button>
+        <div id="action-status" class="small muted" aria-live="polite"></div>
+      </section>
+
+      <section class="card" aria-labelledby="site-h">
+        <h2 id="site-h" data-i18n="popupSiteHeading"></h2>
+        <div class="site-row">
+          <span id="site-host" class="site-host"></span>
+          <span id="site-state" class="badge"></span>
+        </div>
+        <p id="site-unsupported" class="small muted hidden" data-i18n="popupSiteUnsupported"></p>
+        <button id="site-toggle" class="primary wide"></button>
+        <div id="embedded" class="hidden">
+          <p class="small muted" data-i18n="popupEmbeddedHint"></p>
+          <ul id="embedded-list" class="embedded-list"></ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="keys-h">
+        <h2 id="keys-h" data-i18n="shortcutsHeading"></h2>
+        <ul id="shortcut-list" class="shortcut-list small"></ul>
+        <p class="small muted" data-i18n="shortcutsGlobalHint"></p>
+        <button id="open-shortcuts" class="wide" data-i18n="shortcutsConfigure"></button>
+      </section>
+    </main>
+
+    <footer class="small muted" data-i18n="privacyShort"></footer>
+
+    <script src="../lib/time-format.js"></script>
+    <script src="../lib/settings.js"></script>
+    <script src="../lib/site-access.js"></script>
+    <script src="../lib/protocol.js"></script>
+    <script src="../ui/i18n.js"></script>
+    <script src="../ui/shortcuts.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

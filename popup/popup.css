@@ -1,0 +1,141 @@
+body {
+  width: 340px;
+  padding: 10px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.top h1 {
+  font-size: 16px;
+  flex: 1;
+}
+
+.icon-btn {
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 7px;
+}
+
+main {
+  display: grid;
+  gap: 10px;
+}
+
+.target-row,
+.site-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.target-title,
+.site-host {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.badge.off {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.badge:empty {
+  display: none;
+}
+
+.media-line {
+  margin: 6px 0 8px;
+  font: 13px var(--mono);
+  color: var(--muted);
+}
+
+.pin {
+  margin-top: 4px;
+  width: 100%;
+}
+
+.controls .row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.controls .row > button {
+  flex: 1;
+}
+
+.play {
+  font-size: 18px;
+}
+
+.speed {
+  align-items: center;
+}
+
+.rate {
+  flex: 1;
+  text-align: center;
+  font: 600 15px var(--mono);
+}
+
+.wide {
+  width: 100%;
+}
+
+#action-status {
+  min-height: 1.4em;
+  margin-top: 6px;
+}
+
+#site-toggle {
+  margin-top: 8px;
+}
+
+#embedded {
+  margin-top: 10px;
+}
+
+.embedded-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.embedded-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+  font-size: 12px;
+}
+
+.embedded-list span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+footer {
+  margin-top: 10px;
+  text-align: center;
+}
