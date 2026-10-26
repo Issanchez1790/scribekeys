@@ -1,0 +1,80 @@
+{
+  "extName": { "message": "ScribeKeys" },
+  "extDescription": {
+    "message": "Globale Tastenkürzel fürs Transkribieren: Pause mit Rücksprung, Sprünge, Tempo und Zeitstempel für Audio/Video in einem Tab."
+  },
+
+  "cmdTogglePlay": { "message": "Wiedergabe / Pause (mit Rücksprung)" },
+  "cmdRewind": { "message": "Zurückspringen" },
+  "cmdForward": { "message": "Vorspringen" },
+  "cmdCopyTimestamp": { "message": "Zeitstempel kopieren" },
+  "cmdSpeedDown": { "message": "Langsamer (−0.1×)" },
+  "cmdSpeedUp": { "message": "Schneller (+0.1×)" },
+  "cmdSpeedReset": { "message": "Normale Geschwindigkeit (1×)" },
+
+  "shortcutsHeading": { "message": "Tastenkürzel" },
+  "shortcutUnassigned": { "message": "nicht festgelegt" },
+  "shortcutsGlobalHint": {
+    "message": "Damit sie funktionieren, während Sie in einem anderen Fenster tippen, wählen Sie bei jedem Kürzel „Global“."
+  },
+  "shortcutsConfigure": { "message": "Tastenkürzel festlegen" },
+  "shortcutsStep1": { "message": "Öffnen Sie „Tastenkürzel festlegen“ (chrome://extensions/shortcuts)." },
+  "shortcutsStep2": { "message": "Weisen Sie jeder Aktion eine Tastenkombination zu; die Tempo-Aktionen haben anfangs keine." },
+  "shortcutsStep3": { "message": "Wählen Sie im Menü jedes Kürzels „Global“, um es aus Word, Docs oder einem anderen Fenster zu nutzen." },
+  "shortcutsConflictHint": {
+    "message": "Chrome schlägt als globale Kürzel nur Strg+Umschalttaste+0–9 vor, und höchstens vier. Ein globales Kürzel belegt die Kombination systemweit: Meiden Sie die Ihres Editors (Google Docs nutzt Strg+Umschalttaste+7/8/9 für Listen)."
+  },
+
+  "popupOpenOptions": { "message": "Optionen" },
+  "popupTargetHeading": { "message": "Gesteuerter Tab" },
+  "popupTargetNone": { "message": "Noch keiner. Aktivieren Sie die Website und spielen Sie Audio oder Video ab." },
+  "popupTargetNoAccessTitle": { "message": "Tab einer nicht aktivierten Website" },
+  "reasonPinned": { "message": "Festgelegt" },
+  "reasonLastMedia": { "message": "Letztes Medium" },
+  "reasonAudible": { "message": "Mit Ton" },
+  "popupPin": { "message": "Diesen Tab steuern" },
+  "popupUnpin": { "message": "Diesen Tab nicht mehr festlegen" },
+  "popupControlsHeading": { "message": "Steuerung" },
+  "popupCopyTimestamp": { "message": "Zeitstempel kopieren" },
+  "statusCopied": { "message": "Kopiert: $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "statusCopyFailed": { "message": "$STAMP$ konnte nicht kopiert werden", "placeholders": { "stamp": { "content": "$1" } } },
+  "errorNoTarget": { "message": "Kein Tab mit Audio oder Video." },
+  "errorNoAccess": { "message": "Kein Zugriff auf diese Website: Aktivieren Sie sie unten." },
+  "errorNoMedia": { "message": "Kein Audio oder Video im Tab gefunden." },
+  "errorPlayBlocked": { "message": "Der Browser hat die Wiedergabe blockiert: Klicken Sie einmal auf die Seite." },
+  "errorGeneric": { "message": "Die Aktion konnte nicht ausgeführt werden." },
+
+  "popupSiteHeading": { "message": "Diese Website" },
+  "popupSiteNone": { "message": "Nicht unterstützte Seite" },
+  "popupSiteUnsupported": { "message": "Chrome erlaubt auf dieser Seite keine Erweiterungen (chrome://, Chrome Web Store, PDF-Viewer)." },
+  "siteEnabled": { "message": "Aktiviert" },
+  "siteDisabled": { "message": "Kein Zugriff" },
+  "popupEnableSite": { "message": "Auf dieser Website aktivieren" },
+  "popupDisableSite": { "message": "Auf dieser Website deaktivieren" },
+  "popupEnableAlso": { "message": "Auch aktivieren" },
+  "popupEmbeddedHint": { "message": "Diese Seite bettet Inhalte anderer Websites ein. Wenn der Player in einer davon liegt, aktivieren Sie sie ebenfalls:" },
+
+  "privacyShort": { "message": "Kein Netzwerk, keine Analyse: Alles bleibt auf Ihrem Computer." },
+
+  "optionsTitle": { "message": "ScribeKeys-Optionen" },
+  "optionsPlaybackHeading": { "message": "Wiedergabe" },
+  "optionsRewindOnPause": { "message": "Rücksprung beim Pausieren" },
+  "optionsRewindOnPauseHint": { "message": "Beim Pausieren per Kürzel oder Popup springt die Wiedergabe so viele Sekunden zurück, damit Sie mit Kontext weitermachen (wie bei Express Scribe). Pausieren auf der Seite selbst springt nicht zurück." },
+  "optionsSkipSeconds": { "message": "Sekunden pro Sprung (zurück / vor)" },
+  "optionsSpeedHint": { "message": "Die Geschwindigkeit ändert sich in Schritten von 0.1× zwischen 0.5× und 2×." },
+  "optionsTimestampHeading": { "message": "Zeitstempel" },
+  "optionsTimestampFormat": { "message": "Format" },
+  "optionsBrackets": { "message": "In eckigen Klammern" },
+  "optionsPreview": { "message": "Vorschau:" },
+  "optionsInterfaceHeading": { "message": "Oberfläche" },
+  "optionsOverlay": { "message": "Beim Verwenden eines Kürzels kurz eine Anzeige auf der Seite einblenden" },
+  "optionsDebug": { "message": "Debug-Protokolle in der Konsole ([scribekeys])" },
+  "optionsReset": { "message": "Standardwerte wiederherstellen" },
+  "optionsSaved": { "message": "Gespeichert ✓" },
+  "optionsSitesHeading": { "message": "Aktivierte Websites" },
+  "optionsSitesHint": { "message": "ScribeKeys kann Medien nur auf diesen Websites sehen und steuern. Um eine hinzuzufügen, öffnen Sie sie und klicken Sie im Popup auf „Auf dieser Website aktivieren“." },
+  "optionsSitesEmpty": { "message": "Sie haben noch keine Website aktiviert." },
+  "optionsSiteRemove": { "message": "Entfernen" },
+  "optionsPrivacyHeading": { "message": "Datenschutz" },
+  "optionsPrivacyText": { "message": "ScribeKeys stellt keine Netzwerkanfragen, enthält keine Analyse und liest keine Seiteninhalte: Es interagiert nur mit den Audio- und Videoelementen der Websites, die Sie aktivieren. Die Einstellungen werden in chrome.storage.sync gespeichert (mit Ihrem Chrome-Konto synchronisiert, wenn die Synchronisierung aktiv ist)." }
+}

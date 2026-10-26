@@ -1,0 +1,80 @@
+{
+  "extName": { "message": "ScribeKeys" },
+  "extDescription": {
+    "message": "Atalhos globais para transcrição: pausa com retrocesso, saltos, velocidade e marcações de tempo do áudio/vídeo de uma aba."
+  },
+
+  "cmdTogglePlay": { "message": "Reproduzir / pausar (com retrocesso)" },
+  "cmdRewind": { "message": "Voltar" },
+  "cmdForward": { "message": "Avançar" },
+  "cmdCopyTimestamp": { "message": "Copiar marcação de tempo" },
+  "cmdSpeedDown": { "message": "Diminuir velocidade (−0.1×)" },
+  "cmdSpeedUp": { "message": "Aumentar velocidade (+0.1×)" },
+  "cmdSpeedReset": { "message": "Velocidade normal (1×)" },
+
+  "shortcutsHeading": { "message": "Atalhos" },
+  "shortcutUnassigned": { "message": "não definido" },
+  "shortcutsGlobalHint": {
+    "message": "Para que funcionem enquanto você digita em outra janela, escolha “Global” ao lado de cada atalho."
+  },
+  "shortcutsConfigure": { "message": "Configurar atalhos" },
+  "shortcutsStep1": { "message": "Abra “Configurar atalhos” (chrome://extensions/shortcuts)." },
+  "shortcutsStep2": { "message": "Atribua uma combinação a cada ação; as de velocidade começam sem atalho." },
+  "shortcutsStep3": { "message": "No menu de cada atalho, escolha “Global” para usá-lo no Word, no Docs ou em qualquer outra janela." },
+  "shortcutsConflictHint": {
+    "message": "O Chrome só sugere Ctrl+Shift+0–9 como atalhos globais, e no máximo quatro. Um atalho global captura a combinação em todo o sistema: evite as que o seu editor usa (o Google Docs usa Ctrl+Shift+7/8/9 para listas)."
+  },
+
+  "popupOpenOptions": { "message": "Opções" },
+  "popupTargetHeading": { "message": "Aba controlada" },
+  "popupTargetNone": { "message": "Nenhuma ainda. Ative o site e reproduza um áudio ou vídeo." },
+  "popupTargetNoAccessTitle": { "message": "Aba de um site não ativado" },
+  "reasonPinned": { "message": "Fixada" },
+  "reasonLastMedia": { "message": "Última mídia" },
+  "reasonAudible": { "message": "Com som" },
+  "popupPin": { "message": "Controlar esta aba" },
+  "popupUnpin": { "message": "Desafixar esta aba" },
+  "popupControlsHeading": { "message": "Controles" },
+  "popupCopyTimestamp": { "message": "Copiar marcação de tempo" },
+  "statusCopied": { "message": "Copiado: $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "statusCopyFailed": { "message": "Não foi possível copiar $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "errorNoTarget": { "message": "Nenhuma aba com áudio ou vídeo." },
+  "errorNoAccess": { "message": "Sem acesso a este site: ative-o abaixo." },
+  "errorNoMedia": { "message": "Nenhum áudio ou vídeo encontrado na aba." },
+  "errorPlayBlocked": { "message": "O navegador bloqueou a reprodução: clique uma vez na página." },
+  "errorGeneric": { "message": "Não foi possível concluir a ação." },
+
+  "popupSiteHeading": { "message": "Este site" },
+  "popupSiteNone": { "message": "Página não compatível" },
+  "popupSiteUnsupported": { "message": "O Chrome não permite extensões nesta página (chrome://, Chrome Web Store, visualizador de PDF)." },
+  "siteEnabled": { "message": "Ativado" },
+  "siteDisabled": { "message": "Sem acesso" },
+  "popupEnableSite": { "message": "Ativar neste site" },
+  "popupDisableSite": { "message": "Desativar neste site" },
+  "popupEnableAlso": { "message": "Ativar também" },
+  "popupEmbeddedHint": { "message": "Esta página incorpora conteúdo de outros sites. Se o player estiver em um deles, ative-o também:" },
+
+  "privacyShort": { "message": "Sem rede nem análises: tudo fica no seu computador." },
+
+  "optionsTitle": { "message": "Opções do ScribeKeys" },
+  "optionsPlaybackHeading": { "message": "Reprodução" },
+  "optionsRewindOnPause": { "message": "Retrocesso ao pausar" },
+  "optionsRewindOnPauseHint": { "message": "Ao pausar com o atalho ou o popup, volta esses segundos para retomar com contexto (como o Express Scribe). Pausar pela própria página não volta." },
+  "optionsSkipSeconds": { "message": "Segundos por salto (voltar / avançar)" },
+  "optionsSpeedHint": { "message": "A velocidade muda em passos de 0.1× entre 0.5× e 2×." },
+  "optionsTimestampHeading": { "message": "Marcações de tempo" },
+  "optionsTimestampFormat": { "message": "Formato" },
+  "optionsBrackets": { "message": "Entre colchetes" },
+  "optionsPreview": { "message": "Prévia:" },
+  "optionsInterfaceHeading": { "message": "Interface" },
+  "optionsOverlay": { "message": "Mostrar um indicador breve na página ao usar um atalho" },
+  "optionsDebug": { "message": "Logs de depuração no console ([scribekeys])" },
+  "optionsReset": { "message": "Restaurar padrões" },
+  "optionsSaved": { "message": "Salvo ✓" },
+  "optionsSitesHeading": { "message": "Sites ativados" },
+  "optionsSitesHint": { "message": "O ScribeKeys só pode ver e controlar mídias nestes sites. Para adicionar um, abra-o e clique em “Ativar neste site” no popup." },
+  "optionsSitesEmpty": { "message": "Você ainda não ativou nenhum site." },
+  "optionsSiteRemove": { "message": "Remover" },
+  "optionsPrivacyHeading": { "message": "Privacidade" },
+  "optionsPrivacyText": { "message": "O ScribeKeys não faz requisições de rede, não tem análises e não lê o conteúdo das páginas: só interage com os elementos de áudio e vídeo dos sites que você ativar. As configurações ficam em chrome.storage.sync (sincronizadas com sua conta do Chrome se a sincronização estiver ativada)." }
+}

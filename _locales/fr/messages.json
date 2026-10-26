@@ -1,0 +1,80 @@
+{
+  "extName": { "message": "ScribeKeys" },
+  "extDescription": {
+    "message": "Raccourcis globaux pour la transcription : pause avec retour, sauts, vitesse et horodatages de l'audio/vidéo d'un onglet."
+  },
+
+  "cmdTogglePlay": { "message": "Lecture / pause (avec retour en arrière)" },
+  "cmdRewind": { "message": "Reculer" },
+  "cmdForward": { "message": "Avancer" },
+  "cmdCopyTimestamp": { "message": "Copier l'horodatage" },
+  "cmdSpeedDown": { "message": "Ralentir (−0.1×)" },
+  "cmdSpeedUp": { "message": "Accélérer (+0.1×)" },
+  "cmdSpeedReset": { "message": "Vitesse normale (1×)" },
+
+  "shortcutsHeading": { "message": "Raccourcis" },
+  "shortcutUnassigned": { "message": "non défini" },
+  "shortcutsGlobalHint": {
+    "message": "Pour qu'ils fonctionnent pendant que vous tapez dans une autre fenêtre, choisissez « Global » à côté de chaque raccourci."
+  },
+  "shortcutsConfigure": { "message": "Configurer les raccourcis" },
+  "shortcutsStep1": { "message": "Ouvrez « Configurer les raccourcis » (chrome://extensions/shortcuts)." },
+  "shortcutsStep2": { "message": "Attribuez une combinaison à chaque action ; celles de vitesse n'en ont pas au départ." },
+  "shortcutsStep3": { "message": "Dans le menu de chaque raccourci, choisissez « Global » pour l'utiliser depuis Word, Docs ou toute autre fenêtre." },
+  "shortcutsConflictHint": {
+    "message": "Chrome ne suggère que Ctrl+Maj+0–9 comme raccourcis globaux, et quatre au maximum. Un raccourci global capture la combinaison dans tout le système : évitez celles de votre éditeur (Google Docs utilise Ctrl+Maj+7/8/9 pour les listes)."
+  },
+
+  "popupOpenOptions": { "message": "Options" },
+  "popupTargetHeading": { "message": "Onglet contrôlé" },
+  "popupTargetNone": { "message": "Aucun pour l'instant. Activez le site et lancez un audio ou une vidéo." },
+  "popupTargetNoAccessTitle": { "message": "Onglet d'un site non activé" },
+  "reasonPinned": { "message": "Épinglé" },
+  "reasonLastMedia": { "message": "Dernier média" },
+  "reasonAudible": { "message": "Avec du son" },
+  "popupPin": { "message": "Contrôler cet onglet" },
+  "popupUnpin": { "message": "Désépingler cet onglet" },
+  "popupControlsHeading": { "message": "Commandes" },
+  "popupCopyTimestamp": { "message": "Copier l'horodatage" },
+  "statusCopied": { "message": "Copié : $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "statusCopyFailed": { "message": "Impossible de copier $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "errorNoTarget": { "message": "Aucun onglet avec de l'audio ou de la vidéo." },
+  "errorNoAccess": { "message": "Pas d'accès à ce site : activez-le ci-dessous." },
+  "errorNoMedia": { "message": "Aucun audio ni vidéo trouvé dans l'onglet." },
+  "errorPlayBlocked": { "message": "Le navigateur a bloqué la lecture : cliquez une fois sur la page." },
+  "errorGeneric": { "message": "L'action n'a pas pu être effectuée." },
+
+  "popupSiteHeading": { "message": "Ce site" },
+  "popupSiteNone": { "message": "Page non compatible" },
+  "popupSiteUnsupported": { "message": "Chrome n'autorise pas les extensions sur cette page (chrome://, Chrome Web Store, lecteur PDF)." },
+  "siteEnabled": { "message": "Activé" },
+  "siteDisabled": { "message": "Pas d'accès" },
+  "popupEnableSite": { "message": "Activer sur ce site" },
+  "popupDisableSite": { "message": "Désactiver sur ce site" },
+  "popupEnableAlso": { "message": "Activer aussi" },
+  "popupEmbeddedHint": { "message": "Cette page intègre du contenu d'autres sites. Si le lecteur se trouve dans l'un d'eux, activez-le aussi :" },
+
+  "privacyShort": { "message": "Ni réseau ni statistiques : tout reste sur votre ordinateur." },
+
+  "optionsTitle": { "message": "Options de ScribeKeys" },
+  "optionsPlaybackHeading": { "message": "Lecture" },
+  "optionsRewindOnPause": { "message": "Retour en arrière à la pause" },
+  "optionsRewindOnPauseHint": { "message": "En mettant en pause avec le raccourci ou la fenêtre de l'extension, recule de ce nombre de secondes pour reprendre avec du contexte (comme Express Scribe). Mettre en pause depuis la page ne recule pas." },
+  "optionsSkipSeconds": { "message": "Secondes par saut (reculer / avancer)" },
+  "optionsSpeedHint": { "message": "La vitesse change par pas de 0.1× entre 0.5× et 2×." },
+  "optionsTimestampHeading": { "message": "Horodatages" },
+  "optionsTimestampFormat": { "message": "Format" },
+  "optionsBrackets": { "message": "Entre crochets" },
+  "optionsPreview": { "message": "Aperçu :" },
+  "optionsInterfaceHeading": { "message": "Interface" },
+  "optionsOverlay": { "message": "Afficher un bref indicateur sur la page lors de l'utilisation d'un raccourci" },
+  "optionsDebug": { "message": "Journaux de débogage dans la console ([scribekeys])" },
+  "optionsReset": { "message": "Rétablir les valeurs par défaut" },
+  "optionsSaved": { "message": "Enregistré ✓" },
+  "optionsSitesHeading": { "message": "Sites activés" },
+  "optionsSitesHint": { "message": "ScribeKeys ne peut voir et contrôler les médias que sur ces sites. Pour en ajouter un, ouvrez-le et cliquez sur « Activer sur ce site » dans la fenêtre de l'extension." },
+  "optionsSitesEmpty": { "message": "Vous n'avez encore activé aucun site." },
+  "optionsSiteRemove": { "message": "Retirer" },
+  "optionsPrivacyHeading": { "message": "Confidentialité" },
+  "optionsPrivacyText": { "message": "ScribeKeys n'effectue aucune requête réseau, n'a pas de statistiques et ne lit pas le contenu des pages : il n'interagit qu'avec les éléments audio et vidéo des sites que vous activez. Les réglages sont enregistrés dans chrome.storage.sync (synchronisés avec votre compte Chrome si la synchronisation est activée)." }
+}
