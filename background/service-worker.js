@@ -276,7 +276,22 @@ async function doSync() {
   log.debug('sitios sincronizados', { registrados: toRegister, quitados: toUnregister });
 }
 
-chrome.permissions.onAdded.addListener(() => syncRegistrations().catch((e) => log.error('sync', e)));
+/**
+ * Al conceder un sitio, inyecta el script en sus pestañas ya abiertas para no tener que recargar.
+ * Se hace aquí (y no solo desde el popup) porque el popup puede cerrarse al mostrarse el diálogo de permisos.
+ */
+async function injectIntoOpenTabs(patterns) {
+  const valid = (patterns || []).filter(SK.siteAccess.isHttpPattern);
+  if (!valid.length) return;
+  const tabs = await chrome.tabs.query({ url: valid });
+  await Promise.all(tabs.map((tab) => injectContent(tab.id).catch((e) => log.debug('inyección', tab.id, e.message))));
+}
+
+chrome.permissions.onAdded.addListener((permissions) => {
+  syncRegistrations()
+    .then(() => injectIntoOpenTabs(permissions.origins))
+    .catch((e) => log.error('sync', e));
+});
 chrome.permissions.onRemoved.addListener(() => syncRegistrations().catch((e) => log.error('sync', e)));
 
 chrome.runtime.onStartup.addListener(() => syncRegistrations().catch((e) => log.error('sync', e)));
