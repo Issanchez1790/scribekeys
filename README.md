@@ -22,6 +22,8 @@ Extensión de Chrome (Manifest V3) para transcriptores: controla el audio o vide
 
 Al usar un atajo aparece sobre el medio un indicador breve (`⏸ −2 s`, `−3 s`, `0.8×`, `⧉ [00:12:34]`); se puede desactivar.
 
+**Idiomas de la interfaz:** español, inglés, portugués (Brasil), francés y alemán. Chrome elige el de tu navegador; si no está entre ellos, usa el inglés. Las traducciones al portugués, francés y alemán no las ha revisado todavía un hablante nativo: las correcciones son bienvenidas en `_locales/<idioma>/messages.json`.
+
 ## En qué se diferencia
 
 | | ScribeKeys | [Video Speed Controller](https://github.com/igrigorik/videospeed) | [Transcription Helper](https://chromewebstore.google.com/detail/chmkgbchecaliljnmpkdencihbopeodo) |
@@ -152,7 +154,8 @@ background/service-worker.js   atajos, pestaña/frame objetivo, portapapeles, re
 content/media-controller.js    rastrea y controla los medios de cada frame
 content/overlay.js             indicador visual
 offscreen/                     copia al portapapeles sin foco
-popup/  options/  ui/          interfaz (i18n español/inglés)
+popup/  options/  ui/          interfaz
+_locales/                      traducciones (es, en, pt_BR, fr, de)
 lib/                           lógica pura, probada con node:test
 test/                          tests, página de prueba
 scripts/                       servidor de la demo, íconos, e2e
@@ -186,6 +189,8 @@ A Chrome extension (Manifest V3) for transcribers. It controls the audio or vide
 | Normal speed | not set | Back to 1×. |
 
 A brief on-page indicator (`⏸ −2 s`, `−3 s`, `0.8×`, `⧉ [00:12:34]`) confirms each action; it can be turned off.
+
+**Interface languages:** Spanish, English, Portuguese (Brazil), French and German. Chrome picks your browser language and falls back to English otherwise. The Portuguese, French and German translations have not been reviewed by a native speaker yet: corrections are welcome in `_locales/<language>/messages.json`.
 
 ## How it differs
 
