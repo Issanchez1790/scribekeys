@@ -9,7 +9,10 @@
 
   async function render(list) {
     const { t } = SK.i18n;
-    const commands = await chrome.commands.getAll();
+    // chrome.commands.getAll() no garantiza el orden: usar el del protocolo.
+    const order = SK.protocol.COMMANDS;
+    const rank = (name) => (order.includes(name) ? order.indexOf(name) : order.length);
+    const commands = (await chrome.commands.getAll()).sort((a, b) => rank(a.name) - rank(b.name));
     list.replaceChildren();
     for (const cmd of commands) {
       if (cmd.name === '_execute_action') continue;

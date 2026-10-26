@@ -183,8 +183,8 @@ async function init() {
   [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
   const settings = SK.settings.normalize(await chrome.storage.sync.get(null));
-  $('btn-rewind').textContent = `⏪ ${SK.time.formatDelta(-settings.skipSeconds)}`;
-  $('btn-forward').textContent = `${SK.time.formatDelta(settings.skipSeconds)} ⏩`;
+  $('btn-rewind').textContent = SK.time.formatDelta(-settings.skipSeconds);
+  $('btn-forward').textContent = SK.time.formatDelta(settings.skipSeconds);
 
   for (const btn of document.querySelectorAll('[data-command]')) {
     btn.addEventListener('click', () => runCommand(btn.dataset.command));
