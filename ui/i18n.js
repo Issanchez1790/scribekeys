@@ -16,7 +16,7 @@
     for (const el of base.querySelectorAll('[data-i18n-aria-label]')) {
       el.setAttribute('aria-label', t(el.dataset.i18nAriaLabel));
     }
-    document.documentElement.lang = chrome.i18n.getMessage('@@ui_locale').split('_')[0] || 'es';
+    document.documentElement.lang = chrome.i18n.getMessage('@@ui_locale').split('_')[0] || 'en';
   }
 
   const SK = (root.SK = root.SK || {});

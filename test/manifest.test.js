@@ -117,6 +117,12 @@ test('íconos PNG con el tamaño declarado', () => {
   }
 });
 
+test('idiomas: inglés como respaldo y los cinco idiomas de la interfaz', () => {
+  // Chrome usa default_locale cuando el idioma del usuario no tiene traducción.
+  assert.equal(manifest.default_locale, 'en');
+  assert.deepEqual(Object.keys(locales).sort(), ['de', 'en', 'es', 'fr', 'pt_BR']);
+});
+
 test('traducciones: mismas claves en todos los idiomas', () => {
   const [base, ...rest] = Object.keys(locales);
   assert.ok(locales[manifest.default_locale], 'falta el idioma por defecto');
