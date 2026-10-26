@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ScribeKeys</title>
+    <link rel="stylesheet" href="../ui/base.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <img src="../icons/icon48.png" width="40" height="40" alt="" />
+        <div>
+          <h1 data-i18n="optionsTitle"></h1>
+          <p class="muted" data-i18n="extDescription"></p>
+        </div>
+      </header>
+
+      <form id="settings" class="stack" novalidate>
+        <section class="card" aria-labelledby="playback-h">
+          <h2 id="playback-h" data-i18n="optionsPlaybackHeading"></h2>
+          <div class="field">
+            <label for="rewindOnPause" data-i18n="optionsRewindOnPause"></label>
+            <div class="range">
+              <input type="range" id="rewindOnPause" name="rewindOnPause" min="0" max="5" step="0.5" />
+              <output id="rewindOnPause-out" for="rewindOnPause"></output>
+            </div>
+            <p class="small muted" data-i18n="optionsRewindOnPauseHint"></p>
+          </div>
+          <div class="field">
+            <label for="skipSeconds" data-i18n="optionsSkipSeconds"></label>
+            <input type="number" id="skipSeconds" name="skipSeconds" min="1" max="60" step="0.5" inputmode="decimal" />
+          </div>
+          <p class="small muted" data-i18n="optionsSpeedHint"></p>
+        </section>
+
+        <section class="card" aria-labelledby="stamp-h">
+          <h2 id="stamp-h" data-i18n="optionsTimestampHeading"></h2>
+          <fieldset class="field">
+            <legend data-i18n="optionsTimestampFormat"></legend>
+            <label class="inline"><input type="radio" name="timestampFormat" value="hh:mm:ss" /> hh:mm:ss</label>
+            <label class="inline"><input type="radio" name="timestampFormat" value="mm:ss" /> mm:ss</label>
+          </fieldset>
+          <label class="inline"><input type="checkbox" name="brackets" /> <span data-i18n="optionsBrackets"></span></label>
+          <p class="preview"><span data-i18n="optionsPreview"></span> <code id="stamp-preview"></code></p>
+        </section>
+
+        <section class="card" aria-labelledby="ui-h">
+          <h2 id="ui-h" data-i18n="optionsInterfaceHeading"></h2>
+          <label class="inline"><input type="checkbox" name="overlay" /> <span data-i18n="optionsOverlay"></span></label>
+          <label class="inline"><input type="checkbox" name="debug" /> <span data-i18n="optionsDebug"></span></label>
+        </section>
+
+        <div class="actions">
+          <button type="button" id="reset" data-i18n="optionsReset"></button>
+          <span id="saved" class="small saved" aria-live="polite"></span>
+        </div>
+      </form>
+
+      <section class="card" aria-labelledby="keys-h">
+        <h2 id="keys-h" data-i18n="shortcutsHeading"></h2>
+        <ul id="shortcut-list" class="shortcut-list"></ul>
+        <ol class="small steps">
+          <li data-i18n="shortcutsStep1"></li>
+          <li data-i18n="shortcutsStep2"></li>
+          <li data-i18n="shortcutsStep3"></li>
+        </ol>
+        <p class="notice" data-i18n="shortcutsConflictHint"></p>
+        <button type="button" id="open-shortcuts" class="primary" data-i18n="shortcutsConfigure"></button>
+      </section>
+
+      <section class="card" aria-labelledby="sites-h">
+        <h2 id="sites-h" data-i18n="optionsSitesHeading"></h2>
+        <p class="small muted" data-i18n="optionsSitesHint"></p>
+        <ul id="site-list" class="site-list"></ul>
+        <p id="site-empty" class="small muted hidden" data-i18n="optionsSitesEmpty"></p>
+      </section>
+
+      <section class="card" aria-labelledby="privacy-h">
+        <h2 id="privacy-h" data-i18n="optionsPrivacyHeading"></h2>
+        <p class="small" data-i18n="optionsPrivacyText"></p>
+      </section>
+    </div>
+
+    <script src="../lib/time-format.js"></script>
+    <script src="../lib/settings.js"></script>
+    <script src="../lib/site-access.js"></script>
+    <script src="../lib/protocol.js"></script>
+    <script src="../ui/i18n.js"></script>
+    <script src="../ui/shortcuts.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
