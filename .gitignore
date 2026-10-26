@@ -1,0 +1,14 @@
+# Dependencias y artefactos (el proyecto no usa ninguno, pero por si acaso)
+node_modules/
+dist/
+*.zip
+*.crx
+*.pem
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
