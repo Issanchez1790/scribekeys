@@ -1,0 +1,80 @@
+{
+  "extName": { "message": "ScribeKeys" },
+  "extDescription": {
+    "message": "Global shortcuts for transcribers: pause with rewind, skip, speed and timestamps for the audio/video playing in a tab."
+  },
+
+  "cmdTogglePlay": { "message": "Play / pause (with rewind)" },
+  "cmdRewind": { "message": "Rewind" },
+  "cmdForward": { "message": "Fast-forward" },
+  "cmdCopyTimestamp": { "message": "Copy timestamp" },
+  "cmdSpeedDown": { "message": "Slower (−0.1×)" },
+  "cmdSpeedUp": { "message": "Faster (+0.1×)" },
+  "cmdSpeedReset": { "message": "Normal speed (1×)" },
+
+  "shortcutsHeading": { "message": "Shortcuts" },
+  "shortcutUnassigned": { "message": "not set" },
+  "shortcutsGlobalHint": {
+    "message": "To use them while typing in another window, choose “Global” next to each shortcut."
+  },
+  "shortcutsConfigure": { "message": "Configure shortcuts" },
+  "shortcutsStep1": { "message": "Open “Configure shortcuts” (chrome://extensions/shortcuts)." },
+  "shortcutsStep2": { "message": "Assign a key combination to each action; the speed actions start unassigned." },
+  "shortcutsStep3": { "message": "In each shortcut's drop-down choose “Global” to use it from Word, Docs or any other window." },
+  "shortcutsConflictHint": {
+    "message": "Chrome only suggests Ctrl+Shift+0–9 as global shortcuts, and at most four. A global shortcut captures the key combination system-wide: avoid the ones your editor uses (Google Docs uses Ctrl+Shift+7/8/9 for lists)."
+  },
+
+  "popupOpenOptions": { "message": "Options" },
+  "popupTargetHeading": { "message": "Controlled tab" },
+  "popupTargetNone": { "message": "None yet. Enable the site and play some audio or video." },
+  "popupTargetNoAccessTitle": { "message": "Tab on a site that is not enabled" },
+  "reasonPinned": { "message": "Pinned" },
+  "reasonLastMedia": { "message": "Last media" },
+  "reasonAudible": { "message": "Playing sound" },
+  "popupPin": { "message": "Control this tab" },
+  "popupUnpin": { "message": "Unpin this tab" },
+  "popupControlsHeading": { "message": "Controls" },
+  "popupCopyTimestamp": { "message": "Copy timestamp" },
+  "statusCopied": { "message": "Copied: $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "statusCopyFailed": { "message": "Could not copy $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "errorNoTarget": { "message": "No tab with audio or video." },
+  "errorNoAccess": { "message": "No access to this site: enable it below." },
+  "errorNoMedia": { "message": "No audio or video found in the tab." },
+  "errorPlayBlocked": { "message": "The browser blocked playback: click once on the page." },
+  "errorGeneric": { "message": "The action could not be completed." },
+
+  "popupSiteHeading": { "message": "This site" },
+  "popupSiteNone": { "message": "Unsupported page" },
+  "popupSiteUnsupported": { "message": "Chrome does not allow extensions on this page (chrome://, Chrome Web Store, PDF viewer)." },
+  "siteEnabled": { "message": "Enabled" },
+  "siteDisabled": { "message": "No access" },
+  "popupEnableSite": { "message": "Enable on this site" },
+  "popupDisableSite": { "message": "Disable on this site" },
+  "popupEnableAlso": { "message": "Enable too" },
+  "popupEmbeddedHint": { "message": "This page embeds content from other sites. If the player lives in one of them, enable it too:" },
+
+  "privacyShort": { "message": "No network, no analytics: everything stays on your computer." },
+
+  "optionsTitle": { "message": "ScribeKeys options" },
+  "optionsPlaybackHeading": { "message": "Playback" },
+  "optionsRewindOnPause": { "message": "Rewind on pause" },
+  "optionsRewindOnPauseHint": { "message": "When pausing with the shortcut or the popup, jump back this many seconds so you resume with context (like Express Scribe). Pausing from the page itself does not rewind." },
+  "optionsSkipSeconds": { "message": "Seconds per skip (rewind / fast-forward)" },
+  "optionsSpeedHint": { "message": "Speed changes in 0.1× steps between 0.5× and 2×." },
+  "optionsTimestampHeading": { "message": "Timestamps" },
+  "optionsTimestampFormat": { "message": "Format" },
+  "optionsBrackets": { "message": "Wrap in brackets" },
+  "optionsPreview": { "message": "Preview:" },
+  "optionsInterfaceHeading": { "message": "Interface" },
+  "optionsOverlay": { "message": "Show a brief indicator on the page when a shortcut is used" },
+  "optionsDebug": { "message": "Debug logs in the console ([scribekeys])" },
+  "optionsReset": { "message": "Restore defaults" },
+  "optionsSaved": { "message": "Saved ✓" },
+  "optionsSitesHeading": { "message": "Enabled sites" },
+  "optionsSitesHint": { "message": "ScribeKeys can only see and control media on these sites. To add one, open it and click “Enable on this site” in the popup." },
+  "optionsSitesEmpty": { "message": "You have not enabled any site yet." },
+  "optionsSiteRemove": { "message": "Remove" },
+  "optionsPrivacyHeading": { "message": "Privacy" },
+  "optionsPrivacyText": { "message": "ScribeKeys makes no network requests, has no analytics and does not read page content: it only interacts with the audio and video elements of the sites you enable. Settings are stored in chrome.storage.sync (synced with your Chrome account if sync is on)." }
+}

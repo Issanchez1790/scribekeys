@@ -1,0 +1,80 @@
+{
+  "extName": { "message": "ScribeKeys" },
+  "extDescription": {
+    "message": "Atajos globales para transcribir: pausa con retroceso, saltos, velocidad y marcas de tiempo del audio/video de una pestaña."
+  },
+
+  "cmdTogglePlay": { "message": "Reproducir / pausar (con retroceso)" },
+  "cmdRewind": { "message": "Retroceder" },
+  "cmdForward": { "message": "Adelantar" },
+  "cmdCopyTimestamp": { "message": "Copiar marca de tiempo" },
+  "cmdSpeedDown": { "message": "Bajar velocidad (−0.1×)" },
+  "cmdSpeedUp": { "message": "Subir velocidad (+0.1×)" },
+  "cmdSpeedReset": { "message": "Velocidad normal (1×)" },
+
+  "shortcutsHeading": { "message": "Atajos" },
+  "shortcutUnassigned": { "message": "sin asignar" },
+  "shortcutsGlobalHint": {
+    "message": "Para que funcionen mientras escribes en otra ventana, elige «Global» junto a cada atajo."
+  },
+  "shortcutsConfigure": { "message": "Configurar atajos" },
+  "shortcutsStep1": { "message": "Abre «Configurar atajos» (chrome://extensions/shortcuts)." },
+  "shortcutsStep2": { "message": "Asigna una combinación a cada acción; las de velocidad vienen sin asignar." },
+  "shortcutsStep3": { "message": "En el desplegable de cada atajo elige «Global» para usarlo desde Word, Docs u otra ventana." },
+  "shortcutsConflictHint": {
+    "message": "Chrome solo sugiere Ctrl+Mayús+0–9 como atajos globales y como máximo cuatro. Un atajo global captura la combinación en todo el sistema: evita las que uses en tu editor (Google Docs usa Ctrl+Mayús+7/8/9 para listas)."
+  },
+
+  "popupOpenOptions": { "message": "Opciones" },
+  "popupTargetHeading": { "message": "Pestaña controlada" },
+  "popupTargetNone": { "message": "Ninguna todavía. Activa el sitio y reproduce un audio o video." },
+  "popupTargetNoAccessTitle": { "message": "Pestaña de un sitio sin activar" },
+  "reasonPinned": { "message": "Fijada" },
+  "reasonLastMedia": { "message": "Último medio" },
+  "reasonAudible": { "message": "Con sonido" },
+  "popupPin": { "message": "Controlar esta pestaña" },
+  "popupUnpin": { "message": "Dejar de fijar esta pestaña" },
+  "popupControlsHeading": { "message": "Controles" },
+  "popupCopyTimestamp": { "message": "Copiar marca de tiempo" },
+  "statusCopied": { "message": "Copiado: $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "statusCopyFailed": { "message": "No se pudo copiar $STAMP$", "placeholders": { "stamp": { "content": "$1" } } },
+  "errorNoTarget": { "message": "No hay ninguna pestaña con audio o video." },
+  "errorNoAccess": { "message": "Sin acceso a este sitio: actívalo abajo." },
+  "errorNoMedia": { "message": "No se encontró audio ni video en la pestaña." },
+  "errorPlayBlocked": { "message": "El navegador bloqueó la reproducción: haz clic una vez en la página." },
+  "errorGeneric": { "message": "No se pudo completar la acción." },
+
+  "popupSiteHeading": { "message": "Este sitio" },
+  "popupSiteNone": { "message": "Página no compatible" },
+  "popupSiteUnsupported": { "message": "Chrome no permite extensiones en esta página (chrome://, Chrome Web Store, visor de PDF)." },
+  "siteEnabled": { "message": "Activado" },
+  "siteDisabled": { "message": "Sin acceso" },
+  "popupEnableSite": { "message": "Activar en este sitio" },
+  "popupDisableSite": { "message": "Desactivar en este sitio" },
+  "popupEnableAlso": { "message": "Activar también" },
+  "popupEmbeddedHint": { "message": "La página incrusta contenido de otros sitios. Si el reproductor está en uno de ellos, actívalo también:" },
+
+  "privacyShort": { "message": "Sin red ni analítica: todo ocurre en tu equipo." },
+
+  "optionsTitle": { "message": "Opciones de ScribeKeys" },
+  "optionsPlaybackHeading": { "message": "Reproducción" },
+  "optionsRewindOnPause": { "message": "Retroceso al pausar" },
+  "optionsRewindOnPauseHint": { "message": "Al pausar con el atajo o el popup, retrocede estos segundos para retomar con contexto (como Express Scribe). Pausar desde la propia página no retrocede." },
+  "optionsSkipSeconds": { "message": "Segundos por salto (retroceder / adelantar)" },
+  "optionsSpeedHint": { "message": "La velocidad cambia en pasos de 0.1× entre 0.5× y 2×." },
+  "optionsTimestampHeading": { "message": "Marcas de tiempo" },
+  "optionsTimestampFormat": { "message": "Formato" },
+  "optionsBrackets": { "message": "Entre corchetes" },
+  "optionsPreview": { "message": "Vista previa:" },
+  "optionsInterfaceHeading": { "message": "Interfaz" },
+  "optionsOverlay": { "message": "Mostrar un indicador breve sobre la página al usar un atajo" },
+  "optionsDebug": { "message": "Registros de depuración en la consola ([scribekeys])" },
+  "optionsReset": { "message": "Restablecer valores por defecto" },
+  "optionsSaved": { "message": "Guardado ✓" },
+  "optionsSitesHeading": { "message": "Sitios activados" },
+  "optionsSitesHint": { "message": "ScribeKeys solo puede ver y controlar los medios de estos sitios. Para añadir uno, ábrelo y pulsa «Activar en este sitio» en el popup." },
+  "optionsSitesEmpty": { "message": "Todavía no has activado ningún sitio." },
+  "optionsSiteRemove": { "message": "Quitar" },
+  "optionsPrivacyHeading": { "message": "Privacidad" },
+  "optionsPrivacyText": { "message": "ScribeKeys no hace peticiones de red, no tiene analítica y no lee el contenido de las páginas: solo interactúa con los elementos de audio y video de los sitios que actives. La configuración se guarda en chrome.storage.sync (sincronizada con tu cuenta de Chrome si tienes la sincronización activada)." }
+}

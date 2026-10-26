@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "short_name": "ScribeKeys",
+  "description": "__MSG_extDescription__",
+  "version": "0.1.0",
+  "default_locale": "es",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "__MSG_extName__",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": ["storage", "scripting", "offscreen", "clipboardWrite", "activeTab"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "commands": {
+    "toggle-play": {
+      "suggested_key": { "default": "Ctrl+Shift+1" },
+      "global": true,
+      "description": "__MSG_cmdTogglePlay__"
+    },
+    "rewind": {
+      "suggested_key": { "default": "Ctrl+Shift+2" },
+      "global": true,
+      "description": "__MSG_cmdRewind__"
+    },
+    "forward": {
+      "suggested_key": { "default": "Ctrl+Shift+3" },
+      "global": true,
+      "description": "__MSG_cmdForward__"
+    },
+    "copy-timestamp": {
+      "suggested_key": { "default": "Ctrl+Shift+4" },
+      "global": true,
+      "description": "__MSG_cmdCopyTimestamp__"
+    },
+    "speed-down": {
+      "description": "__MSG_cmdSpeedDown__"
+    },
+    "speed-up": {
+      "description": "__MSG_cmdSpeedUp__"
+    },
+    "speed-reset": {
+      "description": "__MSG_cmdSpeedReset__"
+    }
+  }
+}
