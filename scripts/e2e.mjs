@@ -11,99 +11,14 @@
 //
 // Uso: npm run test:e2e        (CHROME_PATH=/ruta/a/chrome para otro ejecutable)
 
-import { spawn } from 'node:child_process';
-import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync, existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import os from 'node:os';
+import { rmSync } from 'node:fs';
 import path from 'node:path';
+import { ROOT, sleep, waitFor, prepareExtensionCopy, startServer, launchChrome, loadExtension, openPage } from './lib/chrome.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // EXT_DIR permite probar otra copia de la extensión, p. ej. el .zip de la release descomprimido.
 const EXT_SOURCE = process.env.EXT_DIR ? path.resolve(process.env.EXT_DIR) : ROOT;
 const PORT = 8765;
 const DEMO_URL = `http://localhost:${PORT}/test/demo.html`;
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-function findChrome() {
-  const candidates = [
-    process.env.CHROME_PATH,
-    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-    path.join(process.env.LOCALAPPDATA || '', 'Google\\Chrome\\Application\\chrome.exe'),
-    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    '/usr/bin/google-chrome',
-    '/usr/bin/chromium',
-  ];
-  return candidates.find((p) => p && existsSync(p));
-}
-
-// ---------------------------------------------------------------------------
-// Cliente CDP mínimo sobre --remote-debugging-pipe (mensajes JSON separados por \0)
-// ---------------------------------------------------------------------------
-
-class Cdp {
-  constructor(proc) {
-    this.out = proc.stdio[3];
-    this.nextId = 0;
-    this.pending = new Map();
-    this.listeners = new Set();
-    let buf = Buffer.alloc(0);
-    proc.stdio[4].on('data', (chunk) => {
-      buf = Buffer.concat([buf, chunk]);
-      let i;
-      while ((i = buf.indexOf(0)) >= 0) {
-        const msg = JSON.parse(buf.subarray(0, i).toString('utf8'));
-        buf = buf.subarray(i + 1);
-        this.dispatch(msg);
-      }
-    });
-  }
-
-  dispatch(msg) {
-    const p = msg.id && this.pending.get(msg.id);
-    if (p) {
-      this.pending.delete(msg.id);
-      if (msg.error) p.reject(new Error(`${p.method}: ${msg.error.message}`));
-      else p.resolve(msg.result);
-      return;
-    }
-    for (const l of this.listeners) l(msg);
-  }
-
-  send(method, params = {}, sessionId) {
-    const id = ++this.nextId;
-    const promise = new Promise((resolve, reject) => this.pending.set(id, { resolve, reject, method }));
-    this.out.write(JSON.stringify({ id, method, params, ...(sessionId ? { sessionId } : {}) }) + '\0');
-    return promise;
-  }
-
-  async evaluate(sessionId, expression, { userGesture = false } = {}) {
-    const r = await this.send(
-      'Runtime.evaluate',
-      { expression, awaitPromise: true, returnByValue: true, userGesture },
-      sessionId
-    );
-    if (r.exceptionDetails) {
-      throw new Error(r.exceptionDetails.exception?.description || r.exceptionDetails.text);
-    }
-    return r.result.value;
-  }
-}
-
-async function waitFor(label, fn, timeoutMs = 10_000) {
-  const end = Date.now() + timeoutMs;
-  let last;
-  while (Date.now() < end) {
-    try {
-      last = await fn();
-      if (last) return last;
-    } catch (err) {
-      last = err;
-    }
-    await sleep(150);
-  }
-  throw new Error(`Tiempo agotado esperando: ${label} (${last instanceof Error ? last.message : last})`);
-}
 
 // ---------------------------------------------------------------------------
 // Resultados
@@ -121,84 +36,19 @@ function skip(name, reason) {
 const near = (a, b, tol = 0.35) => Math.abs(a - b) <= tol;
 
 // ---------------------------------------------------------------------------
-// Preparación
-// ---------------------------------------------------------------------------
-
-function prepareExtensionCopy() {
-  const dir = mkdtempSync(path.join(os.tmpdir(), 'scribekeys-ext-'));
-  for (const entry of ['manifest.json', '_locales', 'background', 'content', 'icons', 'lib', 'offscreen', 'options', 'popup', 'ui']) {
-    cpSync(path.join(EXT_SOURCE, entry), path.join(dir, entry), { recursive: true });
-  }
-  const manifest = JSON.parse(readFileSync(path.join(dir, 'manifest.json'), 'utf8'));
-  manifest.host_permissions = ['http://localhost/*']; // simula "Activar en este sitio"
-  writeFileSync(path.join(dir, 'manifest.json'), JSON.stringify(manifest, null, 2));
-  return dir;
-}
-
-function startServer() {
-  return new Promise((resolve, reject) => {
-    const proc = spawn(process.execPath, [path.join(ROOT, 'scripts', 'serve-demo.mjs')], {
-      env: { ...process.env, PORT: String(PORT) },
-      stdio: ['ignore', 'pipe', 'inherit'],
-    });
-    proc.stdout.once('data', () => resolve(proc));
-    proc.once('error', reject);
-  });
-}
-
-async function openPage(cdp, url, errors) {
-  const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank' });
-  const { sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true });
-  cdp.listeners.add((msg) => {
-    if (msg.sessionId !== sessionId) return;
-    if (msg.method === 'Runtime.exceptionThrown') errors.push(msg.params.exceptionDetails.exception?.description || msg.params.exceptionDetails.text);
-    if (msg.method === 'Runtime.consoleAPICalled' && msg.params.type === 'error') errors.push(JSON.stringify(msg.params.args.map((a) => a.value ?? a.description)));
-  });
-  await cdp.send('Runtime.enable', {}, sessionId);
-  await cdp.send('Page.enable', {}, sessionId);
-  await cdp.send('Page.navigate', { url }, sessionId);
-  await waitFor(`carga de ${url}`, () => cdp.evaluate(sessionId, 'document.readyState === "complete"'));
-  return { targetId, sessionId };
-}
-
-// ---------------------------------------------------------------------------
 // Pruebas
 // ---------------------------------------------------------------------------
 
 async function run() {
-  const chromePath = findChrome();
-  if (!chromePath) throw new Error('No se encontró Chrome. Define CHROME_PATH.');
-
-  const extDir = prepareExtensionCopy();
-  const profile = mkdtempSync(path.join(os.tmpdir(), 'scribekeys-profile-'));
-  const server = await startServer();
-  const chrome = spawn(
-    chromePath,
-    [
-      '--headless=new',
-      '--remote-debugging-pipe',
-      '--enable-unsafe-extension-debugging',
-      `--user-data-dir=${profile}`,
-      '--no-first-run',
-      '--no-default-browser-check',
-      '--autoplay-policy=no-user-gesture-required',
-      'about:blank',
-    ],
-    { stdio: ['ignore', 'ignore', 'ignore', 'pipe', 'pipe'] }
-  );
-  const cdp = new Cdp(chrome);
+  const extDir = prepareExtensionCopy(EXT_SOURCE);
+  const server = await startServer(PORT);
+  const chrome = launchChrome();
+  const { cdp } = chrome;
 
   try {
     // 1. Cargar la extensión
-    const { id } = await cdp.send('Extensions.loadUnpacked', { path: extDir });
+    const { id, swEval } = await loadExtension(cdp, extDir);
     check('el manifest carga sin errores en Chrome', Boolean(id), `id ${id}`);
-
-    const swTarget = await waitFor('service worker', async () => {
-      const { targetInfos } = await cdp.send('Target.getTargets');
-      return targetInfos.find((t) => t.type === 'service_worker' && t.url.startsWith(`chrome-extension://${id}/`));
-    });
-    const { sessionId: sw } = await cdp.send('Target.attachToTarget', { targetId: swTarget.targetId, flatten: true });
-    const swEval = (expr) => cdp.evaluate(sw, expr);
 
     check('importScripts carga toda la lógica en el SW', await swEval('typeof handleCommand === "function" && !!SK.time && !!SK.siteAccess'));
 
@@ -339,11 +189,9 @@ async function run() {
       check(`${name}: sin errores y traducido`, errors.length === 0 && untranslated.length === 0 && text.length > 50, [...errors, ...untranslated].join(' | '));
     }
   } finally {
-    chrome.kill();
     server.kill();
-    await sleep(500);
+    await chrome.close();
     rmSync(extDir, { recursive: true, force: true });
-    rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 }
 
