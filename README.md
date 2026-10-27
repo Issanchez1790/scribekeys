@@ -90,6 +90,8 @@ No se pide `tabs`, ni `<all_urls>`, ni `host_permissions` fijos, ni `notificatio
 - No lee el contenido de las páginas: solo interactúa con los elementos `<audio>`/`<video>` de los sitios que actives.
 - La configuración se guarda en `chrome.storage.sync`, que Chrome sincroniza con tu cuenta si tienes la sincronización activada. Las marcas de tiempo solo van a tu portapapeles.
 
+Detalle completo en la [política de privacidad](PRIVACY.md#español).
+
 ## Limitaciones conocidas
 
 - Medios que no son elementos del DOM: `new Audio()` sin insertar en la página, o reproductores basados solo en Web Audio API.
@@ -130,6 +132,7 @@ npm run test:e2e    # prueba e2e en un Chrome real (headless, perfil temporal)
 npm run serve:demo  # página de prueba en http://localhost:8080/test/demo.html
 npm run icons       # regenera los íconos PNG a partir de su geometría
 npm run package     # crea dist/scribekeys-v<versión>.zip con solo los archivos de la extensión
+npm run store:assets  # capturas, mosaico e ícono de la Chrome Web Store en dist/store/
 ```
 
 - **`npm test`** cubre la lógica pura (formato de marcas de tiempo, límites de velocidad, retroceso, selección de pestaña, medio y frame, configuración, acceso por sitio) y valida el manifest: MV3, sin `<all_urls>`, como máximo 4 atajos sugeridos, globales solo `Ctrl+Shift+[0-9]`, archivos referenciados existentes, traducciones completas, sintaxis y ausencia de código de red.
@@ -250,6 +253,8 @@ No `tabs`, no `<all_urls>`, no fixed `host_permissions`, no `notifications`.
 - It does not read page content: it only interacts with the `<audio>`/`<video>` elements on the sites you enable.
 - Settings live in `chrome.storage.sync`, which Chrome syncs with your account if sync is on. Timestamps only go to your clipboard.
 
+Full details in the [privacy policy](PRIVACY.md).
+
 ## Known limitations
 
 - Media that is not a DOM element: `new Audio()` never inserted into the page, or players built only on the Web Audio API.
@@ -290,6 +295,7 @@ npm run test:e2e    # end-to-end test in a real Chrome (headless, temporary prof
 npm run serve:demo  # test page at http://localhost:8080/test/demo.html
 npm run icons       # regenerate the PNG icons from their geometry
 npm run package     # build dist/scribekeys-v<version>.zip with only the extension files
+npm run store:assets  # Chrome Web Store screenshots, promo tile and icon in dist/store/
 ```
 
 - **`npm test`** covers the pure logic (timestamp format, speed limits, rewind, tab/media/frame selection, settings, per-site access). It also validates the manifest: MV3, no `<all_urls>`, at most 4 suggested shortcuts, globals only `Ctrl+Shift+[0-9]`, referenced files exist, complete translations, valid syntax and no network code.

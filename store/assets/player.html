@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Reproductor de ejemplo para las capturas de la tienda (scripts/store-assets.mjs). El título llega en ?title= -->
+    <title>Recording</title>
+    <link rel="stylesheet" href="player.css" />
+  </head>
+  <body>
+    <header>
+      <span class="logo" aria-hidden="true"></span>
+      <span class="crumbs"><span class="dim">/ </span><span id="name"></span></span>
+    </header>
+    <main>
+      <video id="media" controls preload="auto"></video>
+      <div class="meta"><span>02:00</span><span>WAV</span><span>8 kHz</span><span>mono</span></div>
+    </main>
+    <script src="../../test/demo-audio.js"></script>
+    <script src="player.js"></script>
+  </body>
+</html>
