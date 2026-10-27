@@ -1,0 +1,53 @@
+{
+  "description": [
+    "ScribeKeys steuert das Audio oder Video, das in einem Chrome-Tab läuft, während Sie woanders tippen. Transkribieren Sie in Word, Google Docs oder einem anderen Fenster und pausieren, springen oder kopieren Sie einen Zeitstempel, ohne das Fenster zu wechseln.",
+    "",
+    "WAS ES KANN",
+    "• Wiedergabe / Pause mit automatischem Rücksprung: Beim Pausieren springt die Wiedergabe 2 Sekunden zurück (0–5, einstellbar), damit Sie mit Kontext weitermachen.",
+    "• 3 Sekunden zurück- und vorspringen (1–60, einstellbar).",
+    "• Geschwindigkeit von 0.5× bis 2× in Schritten von 0.1× und zurück auf 1×.",
+    "• Die aktuelle Zeit als Zeitstempel kopieren, z. B. [00:12:34] oder 12:34.",
+    "• Eine kurze Anzeige auf der Seite bestätigt jede Aktion. Sie lässt sich ausschalten.",
+    "• Funktioniert mit HTML5-Audio und -Video auf jeder Website, die Sie aktivieren, auch mit Playern in iframes und Medien, die nach dem Laden der Seite hinzukommen.",
+    "",
+    "GLOBALE TASTENKÜRZEL",
+    "Vorschläge: Strg+Umschalttaste+1 Wiedergabe/Pause · Strg+Umschalttaste+2 zurück · Strg+Umschalttaste+3 vor · Strg+Umschalttaste+4 Zeitstempel kopieren.",
+    "Wählen Sie unter chrome://extensions/shortcuts den Bereich „Global“, damit sie funktionieren, während Chrome im Hintergrund ist. Dort können Sie auch die Tempo-Kürzel festlegen oder jedes Kürzel ändern.",
+    "",
+    "WELCHER TAB GESTEUERT WIRD",
+    "Der Tab, den Sie im Popup festlegen. Ist keiner festgelegt, der letzte Tab, der Medien abgespielt hat. Gibt es ihn nicht mehr, ein Tab, der gerade Ton wiedergibt.",
+    "",
+    "DATENSCHUTZ",
+    "• Kein Zugriff auf Websites bei der Installation. Sie aktivieren jede Website im Popup und können sie jederzeit wieder entfernen.",
+    "• Keine Netzwerkanfragen, keine Analyse, keine Werbung. Nichts verlässt Ihren Computer.",
+    "• Open Source (MIT-Lizenz): https://github.com/Issanchez1790/scribekeys",
+    "",
+    "Oberfläche auf Deutsch, Englisch, Spanisch, Portugiesisch (Brasilien) und Französisch.",
+    "Globale Tastenkürzel sind unter ChromeOS nicht verfügbar."
+  ],
+  "screenshots": [
+    {
+      "title": "Audio steuern, ohne Ihr Dokument zu verlassen",
+      "subtitle": "Globale Kürzel funktionieren, während Sie in einem anderen Fenster tippen."
+    },
+    {
+      "title": "Alles mit einem Klick",
+      "subtitle": "Gesteuerter Tab, aktuelle Zeit und Geschwindigkeit auf einen Blick."
+    },
+    {
+      "title": "Passen Sie es an Ihre Arbeitsweise an",
+      "subtitle": "Rücksprung, Sprungweite, Zeitstempelformat und Tastenkürzel. Kein Netzwerk, keine Analyse."
+    }
+  ],
+  "promo": "Tastenkürzel zum Transkribieren von Audio und Video",
+  "mock": {
+    "player": "Interview — Aufnahme 03.mp3",
+    "editor": "Interview-Transkript.docx",
+    "transcript": [
+      "[00:00:04] Interviewerin: Danke, dass Sie gekommen sind. Wie hat das Projekt angefangen?",
+      "[00:00:11] Gast: Gern. Es begann als kleiner Workshop im Viertel, drei oder vier Leute an einem Tisch.",
+      "[00:00:19] Interviewerin: Und wann wurde daraus etwas Größeres?",
+      "[00:00:24] Gast: Etwa zwei Jahre später, als die Bibliothek uns jeden Samstag einen Raum anbot."
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "description": [
+    "O ScribeKeys controla o áudio ou vídeo que está tocando em uma aba do Chrome enquanto você digita em outro lugar. Transcreva no Word, no Google Docs ou em qualquer outra janela e pause, volte ou copie uma marcação de tempo sem trocar de janela.",
+    "",
+    "O QUE ELE FAZ",
+    "• Reproduzir / pausar com retrocesso automático: ao pausar, volta 2 segundos (0–5, configurável) para você retomar com contexto.",
+    "• Voltar e avançar 3 segundos (1–60, configurável).",
+    "• Velocidade de 0.5× a 2× em passos de 0.1×, e volta para 1×.",
+    "• Copiar o tempo atual como marcação de tempo, por exemplo [00:12:34] ou 12:34.",
+    "• Um indicador breve na página confirma cada ação. Ele pode ser desativado.",
+    "• Funciona com áudio e vídeo HTML5 em qualquer site que você ativar, inclusive players dentro de iframes e mídias adicionadas depois que a página carrega.",
+    "",
+    "ATALHOS GLOBAIS",
+    "Sugeridos: Ctrl+Shift+1 reproduzir/pausar · Ctrl+Shift+2 voltar · Ctrl+Shift+3 avançar · Ctrl+Shift+4 copiar marcação de tempo.",
+    "Em chrome://extensions/shortcuts, escolha o escopo “Global” para que funcionem com o Chrome em segundo plano. Lá você também pode atribuir os atalhos de velocidade ou mudar qualquer um deles.",
+    "",
+    "QUAL ABA É CONTROLADA",
+    "A que você fixar pelo popup. Se nenhuma estiver fixada, a última aba que reproduziu mídia. Se ela não existir mais, uma aba que esteja tocando som.",
+    "",
+    "PRIVACIDADE",
+    "• Nenhum acesso a sites na instalação. Você ativa cada site pelo popup e pode removê-lo quando quiser.",
+    "• Sem requisições de rede, sem análises, sem anúncios. Nada sai do seu computador.",
+    "• Código aberto (licença MIT): https://github.com/Issanchez1790/scribekeys",
+    "",
+    "Interface em português (Brasil), inglês, espanhol, francês e alemão.",
+    "Os atalhos globais não estão disponíveis no ChromeOS."
+  ],
+  "screenshots": [
+    {
+      "title": "Controle o áudio sem sair do seu documento",
+      "subtitle": "Os atalhos globais funcionam enquanto você digita em outra janela."
+    },
+    {
+      "title": "Tudo a um clique",
+      "subtitle": "Veja a aba controlada, o tempo atual e a velocidade."
+    },
+    {
+      "title": "Ajuste ao seu jeito de transcrever",
+      "subtitle": "Retrocesso, segundos por salto, formato da marcação de tempo e atalhos. Sem rede nem análises."
+    }
+  ],
+  "promo": "Atalhos de teclado para transcrever áudio e vídeo",
+  "mock": {
+    "player": "Entrevista — gravação 03.mp3",
+    "editor": "Transcrição entrevista.docx",
+    "transcript": [
+      "[00:00:04] Entrevistadora: Obrigada por vir. Pode começar contando como o projeto surgiu?",
+      "[00:00:11] Convidado: Claro. Começou como uma pequena oficina do bairro, três ou quatro pessoas em volta de uma mesa.",
+      "[00:00:19] Entrevistadora: E quando virou algo maior?",
+      "[00:00:24] Convidado: Uns dois anos depois, quando a biblioteca nos ofereceu uma sala todo sábado."
+    ]
+  }
+}

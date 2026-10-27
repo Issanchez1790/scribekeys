@@ -1,0 +1,53 @@
+{
+  "description": [
+    "ScribeKeys contrôle l'audio ou la vidéo en cours de lecture dans un onglet Chrome pendant que vous tapez ailleurs. Transcrivez dans Word, Google Docs ou toute autre fenêtre, et mettez en pause, reculez ou copiez un horodatage sans changer de fenêtre.",
+    "",
+    "CE QU'IL FAIT",
+    "• Lecture / pause avec retour automatique : à la pause, recule de 2 secondes (0 à 5, réglable) pour reprendre avec du contexte.",
+    "• Reculer et avancer de 3 secondes (1 à 60, réglable).",
+    "• Vitesse de 0.5× à 2× par pas de 0.1×, et retour à 1×.",
+    "• Copier le temps actuel sous forme d'horodatage, par exemple [00:12:34] ou 12:34.",
+    "• Un bref indicateur sur la page confirme chaque action. Il peut être désactivé.",
+    "• Fonctionne avec l'audio et la vidéo HTML5 sur tout site que vous activez, y compris les lecteurs dans des iframes et les médias ajoutés après le chargement de la page.",
+    "",
+    "RACCOURCIS GLOBAUX",
+    "Suggérés : Ctrl+Maj+1 lecture/pause · Ctrl+Maj+2 reculer · Ctrl+Maj+3 avancer · Ctrl+Maj+4 copier l'horodatage.",
+    "Dans chrome://extensions/shortcuts, choisissez la portée « Global » pour qu'ils fonctionnent quand Chrome est en arrière-plan. Vous pouvez aussi y attribuer les raccourcis de vitesse ou modifier n'importe lequel.",
+    "",
+    "QUEL ONGLET EST CONTRÔLÉ",
+    "Celui que vous épinglez depuis la fenêtre de l'extension. Sinon, le dernier onglet qui a lu un média. S'il n'existe plus, un onglet qui émet du son.",
+    "",
+    "CONFIDENTIALITÉ",
+    "• Aucun accès aux sites à l'installation. Vous activez chaque site depuis la fenêtre de l'extension et pouvez le retirer à tout moment.",
+    "• Aucune requête réseau, aucune statistique, aucune publicité. Rien ne quitte votre ordinateur.",
+    "• Code source ouvert (licence MIT) : https://github.com/Issanchez1790/scribekeys",
+    "",
+    "Interface en français, anglais, espagnol, portugais (Brésil) et allemand.",
+    "Les raccourcis globaux ne sont pas disponibles sur ChromeOS."
+  ],
+  "screenshots": [
+    {
+      "title": "Contrôlez l'audio sans quitter votre document",
+      "subtitle": "Les raccourcis globaux fonctionnent pendant que vous tapez dans une autre fenêtre."
+    },
+    {
+      "title": "Tout en un clic",
+      "subtitle": "Voyez l'onglet contrôlé, le temps actuel et la vitesse."
+    },
+    {
+      "title": "Adaptez-le à votre façon de transcrire",
+      "subtitle": "Retour, durée des sauts, format d'horodatage et raccourcis. Ni réseau ni statistiques."
+    }
+  ],
+  "promo": "Raccourcis clavier pour transcrire l'audio et la vidéo",
+  "mock": {
+    "player": "Entretien — enregistrement 03.mp3",
+    "editor": "Transcription entretien.docx",
+    "transcript": [
+      "[00:00:04] Intervieweuse : Merci d'être venu. Pouvez-vous nous raconter comment le projet a commencé ?",
+      "[00:00:11] Invité : Bien sûr. C'était un petit atelier de quartier, trois ou quatre personnes autour d'une table.",
+      "[00:00:19] Intervieweuse : Et quand est-il devenu quelque chose de plus grand ?",
+      "[00:00:24] Invité : Environ deux ans plus tard, quand la bibliothèque nous a proposé une salle tous les samedis."
+    ]
+  }
+}

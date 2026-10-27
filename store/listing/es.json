@@ -1,0 +1,53 @@
+{
+  "description": [
+    "ScribeKeys controla el audio o video que suena en una pestaña de Chrome mientras escribes en otra parte. Transcribe en Word, Google Docs o cualquier otra ventana, y pausa, retrocede o copia una marca de tiempo sin cambiar de ventana.",
+    "",
+    "QUÉ HACE",
+    "• Reproducir / pausar con retroceso automático: al pausar vuelve 2 segundos atrás (0–5, configurable) para que retomes con contexto.",
+    "• Retroceder y adelantar 3 segundos (1–60, configurable).",
+    "• Velocidad de 0.5× a 2× en pasos de 0.1×, y vuelta a 1×.",
+    "• Copiar el tiempo actual como marca de tiempo, por ejemplo [00:12:34] o 12:34.",
+    "• Un indicador breve en la página confirma cada acción. Se puede desactivar.",
+    "• Funciona con audio y video HTML5 en cualquier sitio que actives, también con reproductores dentro de iframes y medios añadidos después de cargar la página.",
+    "",
+    "ATAJOS GLOBALES",
+    "Sugeridos: Ctrl+Shift+1 reproducir/pausar · Ctrl+Shift+2 retroceder · Ctrl+Shift+3 adelantar · Ctrl+Shift+4 copiar marca de tiempo.",
+    "En chrome://extensions/shortcuts elige el ámbito «Global» para que funcionen con Chrome en segundo plano. Ahí también puedes asignar los atajos de velocidad o cambiar cualquiera.",
+    "",
+    "QUÉ PESTAÑA SE CONTROLA",
+    "La que fijes desde el popup. Si no hay ninguna fijada, la última en la que se reprodujo un medio. Si ya no existe, una pestaña que esté sonando.",
+    "",
+    "PRIVACIDAD",
+    "• Sin acceso a ningún sitio al instalarla. Activas cada sitio desde el popup y puedes quitarlo cuando quieras.",
+    "• Sin peticiones de red, sin analítica, sin anuncios. Nada sale de tu equipo.",
+    "• Código abierto (licencia MIT): https://github.com/Issanchez1790/scribekeys",
+    "",
+    "Interfaz en español, inglés, portugués (Brasil), francés y alemán.",
+    "Los atajos globales no están disponibles en ChromeOS."
+  ],
+  "screenshots": [
+    {
+      "title": "Controla el audio sin salir de tu documento",
+      "subtitle": "Los atajos globales funcionan mientras escribes en otra ventana."
+    },
+    {
+      "title": "Todo a un clic",
+      "subtitle": "Mira la pestaña controlada, el tiempo actual y la velocidad."
+    },
+    {
+      "title": "Ajústala a tu forma de transcribir",
+      "subtitle": "Retroceso, segundos de salto, formato de marca de tiempo y atajos. Sin red ni analítica."
+    }
+  ],
+  "promo": "Atajos de teclado para transcribir audio y video",
+  "mock": {
+    "player": "Entrevista — grabación 03.mp3",
+    "editor": "Transcripción entrevista.docx",
+    "transcript": [
+      "[00:00:04] Entrevistadora: Gracias por venir. ¿Nos cuenta cómo empezó el proyecto?",
+      "[00:00:11] Invitado: Claro. Empezó como un taller pequeño del barrio, tres o cuatro personas alrededor de una mesa.",
+      "[00:00:19] Entrevistadora: ¿Y cuándo se convirtió en algo más grande?",
+      "[00:00:24] Invitado: Unos dos años después, cuando la biblioteca nos ofreció una sala todos los sábados."
+    ]
+  }
+}

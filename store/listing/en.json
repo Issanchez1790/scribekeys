@@ -1,0 +1,53 @@
+{
+  "description": [
+    "ScribeKeys controls the audio or video playing in a Chrome tab while you type somewhere else. Write your transcript in Word, Google Docs or any other window, and pause, rewind or copy a timestamp without switching windows.",
+    "",
+    "WHAT IT DOES",
+    "• Play / pause with automatic rewind: pausing jumps back 2 seconds (0–5, configurable), so you resume with context.",
+    "• Rewind and fast-forward by 3 seconds (1–60, configurable).",
+    "• Playback speed from 0.5× to 2× in 0.1× steps, and back to 1×.",
+    "• Copy the current time as a timestamp, such as [00:12:34] or 12:34.",
+    "• A brief on-page indicator confirms each action. You can turn it off.",
+    "• Works with HTML5 audio and video on any site you enable, including players inside iframes and media added after the page loads.",
+    "",
+    "GLOBAL SHORTCUTS",
+    "Suggested: Ctrl+Shift+1 play/pause · Ctrl+Shift+2 rewind · Ctrl+Shift+3 forward · Ctrl+Shift+4 copy timestamp.",
+    "At chrome://extensions/shortcuts, set their scope to “Global” so they work while Chrome is in the background. You can also assign the speed shortcuts there, or change any of them.",
+    "",
+    "WHICH TAB IS CONTROLLED",
+    "The tab you pin from the popup. If none is pinned, the last tab that played media. If that is gone, a tab that is playing sound.",
+    "",
+    "PRIVACY",
+    "• No site access at install. You enable each site from the popup and can remove it at any time.",
+    "• No network requests, no analytics, no ads. Nothing leaves your computer.",
+    "• Open source (MIT license): https://github.com/Issanchez1790/scribekeys",
+    "",
+    "Interface in English, Spanish, Portuguese (Brazil), French and German.",
+    "Global shortcuts are not available on ChromeOS."
+  ],
+  "screenshots": [
+    {
+      "title": "Control the audio without leaving your document",
+      "subtitle": "Global shortcuts work while you type in another window."
+    },
+    {
+      "title": "Everything in one click",
+      "subtitle": "See the controlled tab, the current time and the speed."
+    },
+    {
+      "title": "Tune it to the way you transcribe",
+      "subtitle": "Rewind, skip seconds, timestamp format and shortcuts. No network, no analytics."
+    }
+  ],
+  "promo": "Keyboard shortcuts for transcribing audio and video",
+  "mock": {
+    "player": "Interview — recording 03.mp3",
+    "editor": "Interview transcript.docx",
+    "transcript": [
+      "[00:00:04] Interviewer: Thanks for coming. Could you start by telling us how the project began?",
+      "[00:00:11] Guest: Of course. It started as a small community workshop, three or four people around a table.",
+      "[00:00:19] Interviewer: And when did it become something bigger?",
+      "[00:00:24] Guest: About two years later, when the library offered us a room every Saturday."
+    ]
+  }
+}
